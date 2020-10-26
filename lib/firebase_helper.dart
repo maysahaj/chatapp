@@ -123,6 +123,8 @@ Future<List<Map<String, dynamic>>> getAllChats() async {
     QuerySnapshot querySnapshot = await firestore.collection('Users').get();
     List<Map<String, dynamic>> maps =
         querySnapshot.docs.map((e) => e.data()).toList();
+    print('************************');
+    print(maps);
     return maps;
   } on Exception catch (e) {
     print(e.toString());

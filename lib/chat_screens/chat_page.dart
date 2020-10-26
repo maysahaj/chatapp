@@ -18,19 +18,23 @@ class ChatPage extends StatelessWidget {
         title: Text('Messanger'),
       ),
       body: Container(
+    
         child: FutureBuilder<List<Map<String, dynamic>>>(
           future: getAllChats(),
           builder: (context, snapshot) {
+          
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (snapshot.hasData && snapshot.data == null) {
+            } else if (snapshot.data == null) {
               return Center(
                 child: Text('No Users'),
               );
-            } else {
+            } else if(snapshot.data != null){
               List<Map<String, dynamic>> data = snapshot.data;
+              print(snapshot.data);
+             
               return ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {

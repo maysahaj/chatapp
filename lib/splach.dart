@@ -23,6 +23,7 @@ class Splach extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text('Complany Logo'),
+        
       ),
     );
   }
